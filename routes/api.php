@@ -1,19 +1,41 @@
 <?php
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
-| API Routes
+| Web Routes
 |--------------------------------------------------------------------------
 |
-| Here is where you can register API routes for your application. These
+| Here is where you can register web routes for your application. These
 | routes are loaded by the RouteServiceProvider within a group which
-| is assigned the "api" middleware group. Enjoy building your API!
+| contains the "web" middleware group. Now create something great!
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+//Route::get('/', function () {
+//    return view('welcome');
+//});
+
+//Route::get('/', function () {
+//    return view('tags.index');
+//});
+
+
+Route::post("/tags",[\App\Http\Controllers\TagController::class,"store"]);
+Route::get("/tags",[\App\Http\Controllers\TagController::class,"index"]);
+Route::put('/tags/{id}', [\App\Http\Controllers\TagController::class,"update"]);
+Route::delete('/tags/{id}', [\App\Http\Controllers\TagController::class,"destroy"]);
+Route::get('/tags/{id}', [\App\Http\Controllers\TagController::class,"show"]);
+
+Route::post('/categories', [\App\Http\Controllers\CategoriesController::class,"store"]);
+Route::get("/categories",[\App\Http\Controllers\CategoriesController::class,"index"]);
+Route::put('/categories/{id}', [\App\Http\Controllers\CategoriesController::class,"update"]);
+Route::delete('/categories/{id}', [\App\Http\Controllers\CategoriesController::class,"destroy"]);
+Route::get('/categories/{id}', [\App\Http\Controllers\CategoriesController::class,"show"]);
+
+
+
+
+
+

@@ -26,6 +26,7 @@ Route::post("/tags",[\App\Http\Controllers\TagController::class,"store"]);
 Route::get("/tags",[\App\Http\Controllers\TagController::class,"index"]);
 Route::post('/tags/update/{id}', [\App\Http\Controllers\TagController::class,"update"]);
 Route::post('/tags/destroy/{id}', [\App\Http\Controllers\TagController::class,"destroy"]);
+Route::post('/tags/{id}', [\App\Http\Controllers\TagController::class,"show"]);
 
 Route::post('/categories', [\App\Http\Controllers\CategoriesController::class,"store"]);
 Route::get("/categories",[\App\Http\Controllers\CategoriesController::class,"index"]);
